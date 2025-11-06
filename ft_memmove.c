@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 13:17:42 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/05 13:27:43 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/06 12:01:28 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_rev_memcpy(void *dest, const void *src, size_t n)
 		return (dest);
 	}
 	*((char *) dest) = *((char *) src);
-	ft_memcpy(dest - 1, src - 1, n - 1);
+	ft_rev_memcpy(dest - 1, src - 1, n - 1);
 	return (dest);
 }
 
@@ -28,6 +28,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	if (dest < src)
 		ft_memcpy(dest, src, n);
 	else
-		ft_rev_memcpy(dest + n, src + n, n);
+		ft_rev_memcpy(dest + (n - 1), src + (n - 1), n);
 	return (dest);
 }

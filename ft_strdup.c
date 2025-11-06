@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 19:31:29 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/05 19:35:13 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/06 10:07:22 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,11 @@ char	*ft_strdup(const char *s)
 	if (!dest)
 		return (NULL);
 	i = 0;
-	while (s[i++])
+	while (s[i])
+	{
 		dest[i] = s[i];
+		i++;
+	}
 	dest[i] = '\0';
 	return (dest);
 }

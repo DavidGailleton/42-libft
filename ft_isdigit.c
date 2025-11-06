@@ -6,13 +6,13 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:57:01 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/05 10:45:10 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/05 21:08:46 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int c)
 {
-	if (c > '0' && c < '9')
+	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }

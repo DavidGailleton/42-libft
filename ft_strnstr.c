@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strnstr.c                                          :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 18:05:52 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/05 19:07:15 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/06 13:18:50 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	little_len;
+	size_t	big_len;
 	size_t	i;
 
 	i = 0;
 	little_len = ft_strlen(little);
+	big_len = ft_strlen(big);
 	if (!little[0])
 		return ((char *) big);
-	while ((len - i) < little_len)
+	while ((little_len + i) <= len && (little_len + i) <= big_len)
 	{
 		if (!ft_strncmp(&big[i], little, little_len))
 			return ((char *) &big[i]);
@@ -29,3 +31,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
+/*
+int	main(void)
+{
+	ft_strnstr("lorem ipsum dolor sit amet", "lorem", 15);
+}
+*/

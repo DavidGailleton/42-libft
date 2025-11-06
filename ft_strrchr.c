@@ -6,9 +6,11 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 17:28:39 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/05 17:33:38 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/06 12:39:21 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -19,9 +21,17 @@ char	*ft_strrchr(const char *s, int c)
 		i++;
 	while (i >= 0)
 	{
-		if (s[i] == c)
+		if ((unsigned char) s[i] == (unsigned char) c)
 			return ((char *) &s[i]);
-		i++;
+		i--;
 	}
-	return (0);
+	return (NULL);
 }
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	printf("%s\n", ft_strrchr("bonjour", 'b'));
+}
+*/

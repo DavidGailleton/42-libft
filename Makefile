@@ -27,7 +27,7 @@ SRC			= ft_isalpha.c \
 			  ft_strchr.c \
 			  ft_strrchr.c \
 			  ft_strncmp.c \
-			  ft_memcpy.c \
+			  ft_memcmp.c \
 			  ft_memchr.c \
 			  ft_strnstr.c \
 			  ft_atoi.c \
