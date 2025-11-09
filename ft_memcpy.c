@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 11:46:16 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/05 17:02:06 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/09 20:00:45 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,15 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if (n <= 0)
+	size_t	i;
+
+	if (!dest && !src)
 		return (dest);
-	*((unsigned char *) dest) = *((unsigned char *) src);
-	ft_memcpy(dest + 1, src + 1, n - 1);
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *) dest)[i] = ((unsigned char *) src)[i];
+		i++;
+	}
 	return (dest);
 }
