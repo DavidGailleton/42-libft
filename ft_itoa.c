@@ -6,13 +6,13 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 13:06:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/07 13:52:20 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/09 18:47:18 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	malloc_size(int n)
+static size_t	count_digits(int n)
 {
 	size_t	size;
 
@@ -27,49 +27,51 @@ size_t	malloc_size(int n)
 	return (size);
 }
 
-void	insert_char(char *str, unsigned int nbr, int index)
+static void	insert_char(char *str, unsigned int nbr, size_t index)
 {
-	if (!index)
-		return ;
-	str[index] = (nbr % 10) + '0';
-	insert_char(str, nbr / 10, index - 1);
+	while (nbr)
+	{
+		str[index--] = nbr % 10 + '0';
+		nbr /= 10;
+	}
 }
 
 char	*ft_itoa(int n)
 {
 	unsigned int	nbr;
 	char			*str;
+	size_t			size;
 
 	nbr = n;
 	if (n < 0)
 		nbr = n * -1;
-	str = malloc(sizeof(char) * (malloc_size(n) + 1));
+	size = count_digits(n);
+	str = malloc(sizeof(char) * (size + 1));
 	if (!str)
 		return (NULL);
+	str[size] = '\0';
 	if (nbr == 0)
 		str[0] = '0';
 	else
 	{
 		if (n < 0)
-		{
 			str[0] = '-';
-		}
-		insert_char(str, nbr, malloc_size(n) - 1);
+		insert_char(str, nbr, size - 1);
 	}
-	str[malloc_size(n)] = '\0';
 	return (str);
 }
-
-#include "stdio.h"
-
+/*
 int	main(int argc, char **argv)
 {
 	char	*str;
 
 	if (argc > 1)
 	{
-		str = ft_itoa(atoi(argv[1]));
-		printf("%s\n", str);
+		str = ft_itoa(42);
+		if (!str)
+			return (1);
+		ft_putstr_fd(str, 1);
 		free(str);
 	}
 }
+*/

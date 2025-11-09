@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 11:20:47 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/05 11:44:56 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/09 19:08:42 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	if (n <= 0)
-		return (s);
-	*((char *) s) = c;
-	ft_memset(s + 1, c, n - 1);
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *) s)[i] = c;
+		i++;
+	}
 	return (s);
 }
