@@ -6,13 +6,13 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 16:31:38 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/06 17:02:34 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/09 19:25:35 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	test_charset(char c, char const *set)
+static int	test_charset(char c, char const *set)
 {
 	if (!set[0])
 		return (0);
@@ -21,7 +21,7 @@ int	test_charset(char c, char const *set)
 	return (test_charset(c, set + 1));
 }
 
-int	end_trim(char const *s1, char const *set)
+static size_t	end_trim(char const *s1, char const *set)
 {
 	int	i;
 
@@ -36,9 +36,9 @@ int	end_trim(char const *s1, char const *set)
 	return (i);
 }
 
-int	start_trim(char const *s1, char const *set)
+static size_t	start_trim(char const *s1, char const *set)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (test_charset(s1[i], set))
@@ -46,14 +46,30 @@ int	start_trim(char const *s1, char const *set)
 	return (i);
 }
 
+static int	is_empty(char const *s1, char const *set)
+{
+	size_t	i;
+
+	i = 0;
+	while (s1[i])
+	{
+		if (!test_charset(s1[i], set))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		start;
-	int		end;
-	int		i;
+	size_t	start;
+	size_t	end;
+	size_t	i;
 	char	*str;
 
 	i = 0;
+	if (is_empty(s1, set))
+		return (ft_calloc(1, sizeof(char)));
 	start = start_trim(s1, set);
 	end = end_trim(s1, set);
 	str = malloc(sizeof(char) * (end - start + 2));
