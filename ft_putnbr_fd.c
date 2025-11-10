@@ -6,13 +6,13 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:50:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/08 17:57:02 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/10 10:58:21 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	write_nbr(unsigned int n, int fd)
+static void	write_nbr(unsigned int n, int fd)
 {
 	if (n)
 	{

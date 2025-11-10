@@ -70,14 +70,11 @@ $(NAME):	$(OBJ)
 			$(AR) $(ARFLAGS) $(NAME) $(OBJ)
 			ranlib $(NAME)
 
-$(OBJ_DIR)/%.o:		%.c | $(OBJ_DIR)
+$(OBJ_DIR)/%.o:		%.c
 			$(CC) -o $@ -c $< $(CFLAGS) -I$(HEADER)
 
-$(OBJ_DIR):
-			mkdir $@
-
 clean:
-			rm -f $(OBJ)
+			rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean:		clean
 			rm -f $(NAME)
