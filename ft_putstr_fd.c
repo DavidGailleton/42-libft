@@ -6,11 +6,10 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:43:42 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/11 12:23:51 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/11 13:56:30 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
