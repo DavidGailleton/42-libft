@@ -59,18 +59,33 @@ OBJ			= $(SRC:.c=.o)
 
 BONUS_OBJ	= $(BONUS_SRC:.c=.o)
 
+DEP			= $(SRC:.c=.d)
+
+BONUS_DEP	= $(BONUS_SRC:.c=.d)
+
+ALL_SRC		= $(SRC) $(BONUS_SRC)
+
+ALL_OBJ		= $(OBJ) $(BONUS_OBJ)
+
+ALL_DEP		= $(DEP) $(BONUS_DEP)
+
 
 %.o:		%.c
 			$(CC) -o $@ -c $< $(CFLAGS) -I$(HEADER)
 
+%.d: 		%.c
+        	@set -e; rm -f $@; \
+         	$(CC) -M $(CFLAGS) $< > $@.$$$$; \
+         	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+         	rm -f $@.$$$$
 
-$(NAME):	$(OBJ) $(HEADER)
+$(NAME):	$(OBJ) $(DEP)
 			$(AR) $(ARFLAGS) $(NAME) $(OBJ)
 			ranlib $(NAME)
 
 all: 		$(NAME)
 
-bonus:		$(OBJ) $(BONUS_OBJ) $(HEADER)
+bonus:		$(ALL_OBJ) $(ALL_DEP)
 			$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(BONUS_OBJ)
 			ranlib $(NAME)
 
@@ -81,5 +96,7 @@ fclean:		clean
 			rm -f $(NAME)
 
 re:			fclean all
+
+-include $(ALL_DEP)
 
 .PHONY:		all clean fclean re bonus
