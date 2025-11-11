@@ -1,102 +1,98 @@
-CC			= cc
+CC=			cc
 
-AR			= ar
+AR=			ar
 
-ARFLAGS		= rc
+ARFLAGS=	rc
 
-HEADER		= libft.h
+HEADER=		libft.h
 
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS=		-Wall \
+			-Wextra \
+			-Werror
 
-NAME		= libft.a
+NAME=		libft.a
 
-SRC			= ft_isalpha.c \
-			  ft_isdigit.c \
-			  ft_isalnum.c \
-			  ft_isascii.c \
-			  ft_isprint.c \
-			  ft_strlen.c \
-			  ft_memset.c \
-			  ft_bzero.c \
-			  ft_memcpy.c \
-			  ft_memmove.c \
-			  ft_strlcpy.c \
-			  ft_strlcat.c \
-			  ft_toupper.c \
-			  ft_tolower.c \
-			  ft_strchr.c \
-			  ft_strrchr.c \
-			  ft_strncmp.c \
-			  ft_memcmp.c \
-			  ft_memchr.c \
-			  ft_strnstr.c \
-			  ft_atoi.c \
-			  ft_calloc.c \
-			  ft_strdup.c \
-			  ft_substr.c \
-			  ft_strjoin.c \
-			  ft_strtrim.c \
-			  ft_split.c \
-			  ft_itoa.c \
-			  ft_strmapi.c \
-			  ft_striteri.c \
-			  ft_putchar_fd.c \
-			  ft_putstr_fd.c \
-			  ft_putendl_fd.c \
-			  ft_putnbr_fd.c
+SRC=		ft_isdigit.c \
+			ft_isalpha.c \
+			ft_isalnum.c \
+			ft_isascii.c \
+			ft_isprint.c \
+			ft_strlen.c \
+			ft_memset.c \
+			ft_bzero.c \
+			ft_memcpy.c \
+			ft_memmove.c \
+			ft_strlcpy.c \
+			ft_strlcat.c \
+			ft_toupper.c \
+			ft_tolower.c \
+			ft_strchr.c \
+			ft_strrchr.c \
+			ft_strncmp.c \
+			ft_memcmp.c \
+			ft_memchr.c \
+			ft_strnstr.c \
+			ft_atoi.c \
+			ft_calloc.c \
+			ft_strdup.c \
+			ft_substr.c \
+			ft_strjoin.c \
+			ft_strtrim.c \
+			ft_split.c \
+			ft_itoa.c \
+			ft_strmapi.c \
+			ft_striteri.c \
+			ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_putendl_fd.c \
+			ft_putnbr_fd.c
 
-BONUS_SRC	= ft_lstnew_bonus.c \
-			  ft_lstadd_front_bonus.c \
-			  ft_lstsize_bonus.c \
-			  ft_lstlast_bonus.c \
-			  ft_lstadd_back_bonus.c \
-			  ft_lstdelone_bonus.c \
-			  ft_lstclear_bonus.c \
-			  ft_lstiter_bonus.c \
-			  ft_lstmap_bonus.c
+BONUS_SRC=	ft_lstnew_bonus.c \
+			ft_lstadd_front_bonus.c \
+			ft_lstsize_bonus.c \
+			ft_lstlast_bonus.c \
+			ft_lstadd_back_bonus.c \
+			ft_lstdelone_bonus.c \
+			ft_lstclear_bonus.c \
+			ft_lstiter_bonus.c \
+			ft_lstmap_bonus.c
 
-OBJ			= $(SRC:.c=.o)
+OBJ=		$(SRC:.c=.o)
 
-BONUS_OBJ	= $(BONUS_SRC:.c=.o)
+BONUS_OBJ=	$(BONUS_SRC:.c=.o)
 
-DEP			= $(SRC:.c=.d)
+DEP=		$(SRC:.c=.d)
 
-BONUS_DEP	= $(BONUS_SRC:.c=.d)
+BONUS_DEP=	$(BONUS_SRC:.c=.d)
 
-ALL_SRC		= $(SRC) $(BONUS_SRC)
+ALL_SRC=	$(SRC) $(BONUS_SRC)
 
-ALL_OBJ		= $(OBJ) $(BONUS_OBJ)
+ALL_OBJ=	$(OBJ) $(BONUS_OBJ)
 
-ALL_DEP		= $(DEP) $(BONUS_DEP)
+ALL_DEP=	$(DEP) $(BONUS_DEP)
+
+%.o:	%.c
+			$(CC) -MMD -MP -o $@ -c $< $(CFLAGS) -I$(HEADER)
 
 
-%.o:		%.c
-			$(CC) -o $@ -c $< $(CFLAGS) -I$(HEADER)
-
-%.d: 		%.c
-        	@set -e; rm -f $@; \
-         	$(CC) -M $(CFLAGS) $< > $@.$$$$; \
-         	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
-         	rm -f $@.$$$$
-
-$(NAME):	$(OBJ) $(DEP)
+$(NAME):	$(OBJ)
 			$(AR) $(ARFLAGS) $(NAME) $(OBJ)
 			ranlib $(NAME)
 
-all: 		$(NAME)
+all:		$(NAME)
 
-bonus:		$(ALL_OBJ) $(ALL_DEP)
-			$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(BONUS_OBJ)
+bonus:		$(ALL_OBJ)
+			$(AR) $(ARFLAGS) $(NAME) $(ALL_OBJ)
 			ranlib $(NAME)
 
-clean:
-			rm -f $(OBJ) $(BONUS_OBJ)
+clean:	
+			rm -f $(ALL_OBJ) $(ALL_DEP)
 
 fclean:		clean
 			rm -f $(NAME)
 
 re:			fclean all
 
--include $(ALL_DEP)
+-include	$(ALL_DEP)
 
 .PHONY:		all clean fclean re bonus
