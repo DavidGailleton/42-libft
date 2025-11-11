@@ -6,17 +6,14 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:43:42 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/08 17:44:38 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/11 12:23:51 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	while (*s)
-	{
-		ft_putchar_fd(*s, fd);
-		s++;
-	}
+	write(fd, s, ft_strlen(s));
 }

@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 19:07:51 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/09 17:34:56 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/11 13:48:35 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (res);
 }
-/*
-#include <stdio.h>
-
-int	main(int argc, char **argv)
-{
-	if (argc > 1)
-	{
-		printf("%d\n", ft_atoi(argv[1]));
-		printf("%d\n", atoi(argv[1]));
-	}
-}
-*/

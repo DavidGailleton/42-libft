@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 16:31:38 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/09 19:25:35 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/11 13:48:05 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str[i] = '\0';
 	return (str);
 }
-/*
-int	main(void)
-{
-	char	*test;
-
-	test = ft_strtrim("lorem \n ipsum \t dolor \n sit \t amet", " ");
-	printf("%s\n", test);
-	free(test);
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 11:41:08 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/05 11:44:03 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/11 11:41:35 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	if (n <= 0)
-		return ;
-	*((char *) s) = '\0';
-	ft_bzero(s + 1, n - 1);
+	while (n > 0)
+	{
+		*((unsigned char *) s) = '\0';
+		s++;
+		n--;
+	}
 }

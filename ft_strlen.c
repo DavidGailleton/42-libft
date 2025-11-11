@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 11:17:31 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/05 11:20:00 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/11 13:29:00 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 size_t	ft_strlen(const char *s)
 {
-	if (!(*s))
-		return (0);
-	return (1 + ft_strlen(s + 1));
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

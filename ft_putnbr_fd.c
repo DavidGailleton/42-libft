@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:50:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/10 10:58:21 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/11 12:26:48 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	write_nbr(unsigned int n, int fd)
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (!n)
-		ft_putchar_fd(n % 10 + '0', fd);
+		ft_putchar_fd('0', fd);
 	else if (n < 0)
 	{
 		ft_putchar_fd('-', fd);

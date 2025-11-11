@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 18:05:52 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/06 13:18:50 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/11 13:47:25 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-/*
-int	main(void)
-{
-	ft_strnstr("lorem ipsum dolor sit amet", "lorem", 15);
-}
-*/

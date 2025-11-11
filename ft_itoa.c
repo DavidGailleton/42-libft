@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 13:06:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/09 18:47:18 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/11 13:48:49 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,3 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-/*
-int	main(int argc, char **argv)
-{
-	char	*str;
-
-	if (argc > 1)
-	{
-		str = ft_itoa(42);
-		if (!str)
-			return (1);
-		ft_putstr_fd(str, 1);
-		free(str);
-	}
-}
-*/

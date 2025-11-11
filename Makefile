@@ -45,8 +45,7 @@ SRC			= ft_isalpha.c \
 			  ft_putendl_fd.c \
 			  ft_putnbr_fd.c
 
-BONUS_SRC	= $(SRC) \
-			  ft_lstnew_bonus.c \
+BONUS_SRC	= ft_lstnew_bonus.c \
 			  ft_lstadd_front_bonus.c \
 			  ft_lstsize_bonus.c \
 			  ft_lstlast_bonus.c \
@@ -71,8 +70,8 @@ $(NAME):	$(OBJ) $(HEADER)
 
 all: 		$(NAME)
 
-bonus:		$(BONUS_OBJ)
-			$(AR) $(ARFLAGS) $(NAME) $(BONUS_OBJ)
+bonus:		$(OBJ) $(BONUS_OBJ) $(HEADER)
+			$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(BONUS_OBJ)
 			ranlib $(NAME)
 
 clean:
