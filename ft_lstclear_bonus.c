@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/09 15:31:17 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/12 13:15:37 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 17:07:13 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*temp;
 	t_list	*next;
 
-	if (!lst ||!*lst)
+	if (!lst || !*lst)
 		return ;
 	temp = *lst;
 	next = temp->next;

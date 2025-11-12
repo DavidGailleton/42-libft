@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:49:43 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/10 18:18:17 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 17:05:00 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+# include <stdint.h>
 
 typedef struct s_list
 {

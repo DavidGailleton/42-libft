@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 17:30:25 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/12 13:39:16 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 17:22:49 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*str;
 	unsigned int	i;
 
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	i = 0;
 	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
