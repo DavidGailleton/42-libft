@@ -2,7 +2,7 @@ CC=			cc
 
 AR=			ar
 
-ARFLAGS=	rc
+ARFLAGS=	rcs
 
 HEADER=		libft.h
 
@@ -65,25 +65,21 @@ DEP=		$(SRC:.c=.d)
 
 BONUS_DEP=	$(BONUS_SRC:.c=.d)
 
-ALL_SRC=	$(SRC) $(BONUS_SRC)
-
 ALL_OBJ=	$(OBJ) $(BONUS_OBJ)
 
 ALL_DEP=	$(DEP) $(BONUS_DEP)
 
-%.o:	%.c
+
+%.o:		%.c
 			$(CC) -MMD -MP -o $@ -c $< $(CFLAGS) -I$(HEADER)
-
-
-$(NAME):	$(OBJ)
-			$(AR) $(ARFLAGS) $(NAME) $(OBJ)
-			ranlib $(NAME)
 
 all:		$(NAME)
 
-bonus:		$(ALL_OBJ)
-			$(AR) $(ARFLAGS) $(NAME) $(ALL_OBJ)
-			ranlib $(NAME)
+$(NAME):	$(OBJ)
+			$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+
+bonus:
+			$(MAKE) $(NAME) SRC="$(SRC) $(BONUS_SRC)"
 
 clean:	
 			rm -f $(ALL_OBJ) $(ALL_DEP)
@@ -93,6 +89,6 @@ fclean:		clean
 
 re:			fclean all
 
--include	$(ALL_DEP)
+-include	$(DEP)
 
 .PHONY:		all clean fclean re bonus

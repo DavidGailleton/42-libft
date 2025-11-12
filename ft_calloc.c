@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 19:26:10 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/05 21:18:14 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 15:51:55 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*all_mem;
 
+	if ((nmemb * size < nmemb || nmemb * size < size)
+		&& size > 0 && nmemb > 0)
+		return (NULL);
 	all_mem = malloc(size * nmemb);
 	if (!all_mem)
 		return (NULL);

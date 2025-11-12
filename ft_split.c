@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:02:58 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/11 13:49:21 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 13:30:49 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 
+	if (!s)
+		return (NULL);
 	strs = ft_calloc(sizeof(char *), strs_size(s, c) + 1);
 	if (!strs)
 		return (NULL);
@@ -67,12 +69,11 @@ char	**ft_split(char const *s, char c)
 		if ((s[j] != c && j == 0) || (s[j] != c && s[j - 1] == c))
 		{
 			strs[i] = ft_substr(&s[j], 0, next_match((char *) &s[j], c));
-			if (!strs[i])
+			if (!strs[i++])
 			{
 				clear_strs(strs);
 				return (NULL);
 			}
-			i++;
 		}
 		j++;
 	}

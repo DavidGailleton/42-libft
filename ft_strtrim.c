@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 16:31:38 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/11/11 13:48:05 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/11/12 13:50:53 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 	char	*str;
 
+	if (!s1 || !set)
+		return (NULL);
 	i = 0;
 	if (is_empty(s1, set))
 		return (ft_calloc(1, sizeof(char)));
