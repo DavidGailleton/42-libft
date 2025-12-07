@@ -6,7 +6,7 @@
 /*   By: dgaillet <dgaillet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 13:06:35 by dgaillet          #+#    #+#             */
-/*   Updated: 2025/12/07 12:27:17 by dgaillet         ###   ########lyon.fr   */
+/*   Updated: 2025/12/07 12:29:25 by dgaillet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	insert_char(char *str, unsigned long long nbr, size_t index)
 	}
 }
 
-char	*ft_itoa(long long n)
+char	*ft_lltoa(long long n)
 {
 	unsigned long long	nbr;
 	char			*str;
